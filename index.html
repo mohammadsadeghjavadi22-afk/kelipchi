@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0912">
+<meta name="application-name" content="کلیپ‌چی">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>کلیپ‌چی | دستیار ساخت کلیپ</title>
+<style>
+:root{--bg:#0b0912;--panel:#151221;--panel2:#1d1830;--purple:#8b5cf6;--purple2:#6d28d9;--text:#f7f4ff;--muted:#aaa2bb;--line:#302843;--green:#43d9a3}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#38205f 0,transparent 38%),var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:520px;margin:auto;min-height:100vh;padding:18px 16px 92px}
+header{display:flex;align-items:center;justify-content:space-between;margin:5px 0 24px}.brand{display:flex;align-items:center;gap:11px}.logo{width:45px;height:45px;border-radius:15px;background:linear-gradient(145deg,#a78bfa,#6d28d9);display:grid;place-items:center;box-shadow:0 8px 24px #6d28d955;font-size:23px}.brand h1{font-size:20px;margin:0}.brand small{color:var(--muted);font-size:11px}.avatar{width:38px;height:38px;border-radius:50%;background:#241b39;border:1px solid var(--line);display:grid;place-items:center}
+.hero{background:linear-gradient(135deg,#271747,#171126 68%);border:1px solid #49316c;border-radius:24px;padding:21px;position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;font-size:115px;color:#ffffff0b;left:12px;top:-28px}.eyebrow{color:#c4a8ff;font-size:12px}.hero h2{font-size:24px;line-height:1.6;margin:8px 0}.hero p{font-size:13px;color:#c5bdd3;line-height:1.9;margin:0 0 17px}.primary{background:linear-gradient(100deg,#9b6bff,#6d28d9);color:white;border:0;border-radius:13px;padding:13px 17px;font-weight:bold;box-shadow:0 7px 20px #6d28d944}.section{margin-top:26px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}.section h3{font-size:16px;margin:0}.muted{color:var(--muted);font-size:12px}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.cat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px 5px;text-align:center;color:var(--text);font-size:11px}.cat span{display:block;font-size:23px;margin-bottom:7px}.cat.active{border-color:var(--purple);background:#281b40}.idea{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;margin-top:10px}.idea-top{display:flex;justify-content:space-between;align-items:center}.tag{font-size:10px;color:#cbb4ff;background:#34234f;padding:5px 9px;border-radius:20px}.idea h4{margin:12px 0 7px;font-size:15px}.idea p{font-size:12px;line-height:1.9;color:#c5bdd3;margin:0}.actions{display:flex;gap:8px;margin-top:13px}.smallbtn{border:1px solid var(--line);background:#201a2e;color:#eee7ff;border-radius:10px;padding:9px 11px;font-size:11px}.smallbtn.fav{color:#ff8ab5}.screen{display:none}.screen.active{display:block}.field{margin:13px 0}.field label{display:block;font-size:12px;color:#d9d1e8;margin-bottom:8px}.field select,.field input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;color:white;outline:none}.result{background:#171225;border:1px solid #4a3470;border-radius:16px;padding:15px;margin-top:15px;line-height:2;font-size:13px;white-space:pre-wrap}.empty{border:1px dashed #493b60;border-radius:16px;padding:24px;text-align:center;color:var(--muted);font-size:13px;line-height:2}.bottom{position:fixed;bottom:0;left:0;right:0;background:#100d19ed;backdrop-filter:blur(15px);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5}.nav{width:min(520px,100%);display:grid;grid-template-columns:repeat(4,1fr);padding:9px 10px calc(9px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:var(--muted);font-size:10px;padding:5px}.nav button span{display:block;font-size:20px;margin-bottom:4px}.nav button.active{color:#c4a4ff}.premium{background:linear-gradient(120deg,#352052,#21162e);border:1px solid #63438d;border-radius:18px;padding:16px;margin-top:20px}.premium strong{display:block;margin-bottom:6px}.premium p{color:#c5bdd3;font-size:11px;line-height:1.8;margin:0}
+.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#312344;border:1px solid #6b4a99;color:white;padding:10px 15px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:9}.toast.show{opacity:1}
+@media(min-width:600px){body{padding:20px 0}.app{border:1px solid #211a30;border-radius:28px;min-height:calc(100vh - 40px)}.bottom{bottom:20px}.nav{border-radius:0 0 28px 28px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">🎬</div><div><h1>کلیپ‌چی</h1><small>دستیار ایده‌پردازی ویدئو</small></div></div><div class="avatar">✦</div></header>
+
+<main>
+<section id="home" class="screen active">
+ <div class="hero"><div class="eyebrow">خلاقیتت رو روشن کن ✨</div><h2>برای کلیپ بعدیت<br>ایده کم آوردی؟</h2><p>موضوعت رو انتخاب کن و یک ایده تازه، سناریو و کپشن بگیر.</p><button class="primary" onclick="go('studio')">ساخت ایده جدید ←</button></div>
+ <div class="section"><div class="section-head"><h3>دسته‌بندی‌ها</h3><span class="muted">موضوع دلخواهت</span></div>
+ <div class="categories">
+  <button class="cat active" data-cat="تبلیغاتی" onclick="pickCat(this)"><span>🛍️</span>تبلیغاتی</button>
+  <button class="cat" data-cat="آموزشی" onclick="pickCat(this)"><span>💡</span>آموزشی</button>
+  <button class="cat" data-cat="سرگرمی" onclick="pickCat(this)"><span>🎭</span>سرگرمی</button>
+  <button class="cat" data-cat="انگیزشی" onclick="pickCat(this)"><span>🚀</span>انگیزشی</button>
+ </div></div>
+ <div class="section"><div class="section-head"><h3>ایده پیشنهادی</h3><span class="muted">برای شروع</span></div><div id="homeIdea"></div></div>
+ <div class="premium"><strong>👑 کلیپ‌چی ویژه</strong><p>در نسخه‌های آینده، بسته‌های سناریوی حرفه‌ای و ابزارهای بیشتر در دسترس خواهند بود.</p></div>
+</section>
+
+<section id="studio" class="screen">
+ <div class="section-head"><h3>🎬 سناریوساز</h3><span class="muted">ایده مخصوص تو</span></div>
+ <p class="muted">چند مورد رو انتخاب کن تا کلیپ‌چی یک طرح اولیه پیشنهاد بده.</p>
+ <div class="field"><label>موضوع کلیپ</label><select id="topic"><option>تبلیغاتی</option><option>آموزشی</option><option>سرگرمی</option><option>انگیزشی</option></select></div>
+ <div class="field"><label>مدت ویدئو</label><select id="duration"><option>۱۵ ثانیه</option><option selected>۳۰ ثانیه</option><option>۶۰ ثانیه</option></select></div>
+ <div class="field"><label>موضوع یا محصول (اختیاری)</label><input id="subject" placeholder="مثلاً معرفی یک کافه یا آموزش تدوین"></div>
+ <div class="field"><label>توضیحی که دوست داری در سناریو باشد</label><input id="detail" placeholder="مثلاً تأکید روی قیمت مناسب و کیفیت"></div>
+ <button class="primary" style="width:100%" onclick="generate()">✨ ساخت سناریوی اختصاصی</button>
+ <p class="muted" style="line-height:1.8">این نسخه با الگوهای داخلی و اطلاعاتی که وارد می‌کنی سناریو می‌سازد؛ برای تولید هوشمند آنلاین به سرویس جداگانه نیاز است.</p>
+ <div id="studioResult"></div>
+</section>
+
+<section id="saved" class="screen">
+ <div class="section-head"><h3>❤️ ایده‌های ذخیره‌شده</h3><span class="muted">مخصوص تو</span></div><div id="savedList"></div>
+</section>
+
+<section id="profile" class="screen">
+ <div class="section-head"><h3>حساب کاربری</h3></div>
+ <div class="idea"><div style="font-size:28px">👤</div><h4>خوش آمدی به کلیپ‌چی</h4><p>فعلاً بدون ثبت‌نام از امکانات نسخه آزمایشی استفاده کن. ایده‌ها روی همین دستگاه ذخیره می‌شوند.</p></div>
+ <div class="section"><h3>امکانات نسخه فعلی</h3><div class="idea"><p>✓ پیشنهاد ایده و سناریو<br>✓ ساخت کپشن<br>✓ ذخیره علاقه‌مندی‌ها<br>✓ کپی متن برای استفاده در تدوین</p></div></div>
+ <div class="section"><h3>درباره برنامه</h3><p class="muted">کلیپ‌چی نسخه آزمایشی ۰.۱ — ساخته‌شده برای کمک به خلاقیت تولیدکنندگان محتوا.</p></div>
+</section>
+</main>
+</div>
+<div class="bottom"><nav class="nav">
+<button class="active" data-page="home" onclick="go('home')"><span>⌂</span>خانه</button>
+<button data-page="studio" onclick="go('studio')"><span>✦</span>سناریوساز</button>
+<button data-page="saved" onclick="go('saved')"><span>♡</span>ذخیره‌ها</button>
+<button data-page="profile" onclick="go('profile')"><span>☻</span>حساب من</button>
+</nav></div>
+<div id="toast" class="toast"></div>
+<script>
+const bank={
+"تبلیغاتی":[
+{title:"یک محصول، سه دلیل خرید!",script:"شروع: محصول را در یک نمای نزدیک و جذاب نشان بده.\\nمیانه: سه ویژگی مهم را با نوشته‌های کوتاه نمایش بده.\\nپایان: محصول را در استفاده واقعی نشان بده و دعوت به اقدام اضافه کن.",caption:"کیفیت و جزئیاتی که ارزش دیدن دارن ✨"},
+{title:"از مشکل تا راه‌حل",script:"با نمایش یک مشکل آشنا شروع کن. محصول یا خدمت را به‌عنوان راه‌حل معرفی کن. در پایان نتیجه استفاده را نشان بده.",caption:"راه‌حل ساده‌تر از چیزیه که فکر می‌کنی!"}],
+"آموزشی":[
+{title:"۳ نکته در ۳۰ ثانیه",script:"یک عنوان کنجکاوکننده بگذار. سه نکته کوتاه را با مثال تصویری نشان بده. نکته آخر را به‌عنوان مهم‌ترین نکته برجسته کن.",caption:"این آموزش کوتاه رو ذخیره کن تا یادت بمونه 💡"},
+{title:"قبل و بعد یک مهارت",script:"ابتدا نتیجه خام را نشان بده. سپس مراحل انجام کار را سریع و واضح نمایش بده. در پایان نتیجه نهایی را کنار نسخه اولیه بگذار.",caption:"با تمرین، نتیجه تغییر می‌کنه."}],
+"سرگرمی":[
+{title:"انتظار در برابر واقعیت",script:"یک موقعیت ایده‌آل را در چند ثانیه اول نشان بده. سپس با یک کات سریع، نسخه واقعی و بامزه آن را نمایش بده.",caption:"برای شما هم پیش اومده؟ 😂"},
+{title:"حدس بزن پایانش چیه!",script:"یک صحنه کوتاه و مبهم بساز. قبل از نمایش نتیجه، از مخاطب بخواه حدس بزند. پایان را با یک چرخش بامزه کامل کن.",caption:"پایانش رو حدس زدی؟"}],
+"انگیزشی":[
+{title:"قدم‌های کوچک، نتیجه بزرگ",script:"با یک هدف ساده شروع کن. چند لحظه از تمرین و تلاش را پشت سر هم نشان بده. در پایان روی پیشرفت، نه کمال، تأکید کن.",caption:"هر روز فقط یک قدم بهتر 🌱"},
+{title:"شروع کن، حتی ساده",script:"نمایی از آماده‌سازی و شروع کار بگیر. چند مرحله واقعی از مسیر را نشان بده. پایان را با یک پیام کوتاه درباره استمرار ببند.",caption:"لازم نیست کامل باشی؛ فقط شروع کن."}]
+};
+let currentCat="تبلیغاتی";
+let favorites=JSON.parse(localStorage.getItem("clipchi_favs")||"[]");
+function toast(t){let el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),1900)}
+function go(page){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(page).classList.add("active");document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===page));if(page==="saved")renderSaved();window.scrollTo(0,0)}
+function pickCat(el){document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));el.classList.add("active");currentCat=el.dataset.cat;renderHome()}
+function one(cat){let a=bank[cat];return a[Math.floor(Math.random()*a.length)]}
+function card(item,cat,idx){let key=cat+"|"+item.title;let is=favorites.some(x=>x.key===key);return `<div class="idea"><div class="idea-top"><span class="tag">${cat}</span><span class="muted">ایده ${idx||1}</span></div><h4>${item.title}</h4><p>${item.script.replaceAll("\\n","<br>")}</p><div class="actions"><button class="smallbtn" onclick="copyText('${encodeURIComponent(item.title+'\\n'+item.script+'\\n'+item.caption)}')">کپی متن</button><button class="smallbtn fav" onclick="toggleFav('${encodeURIComponent(cat)}','${encodeURIComponent(item.title)}')">${is?"♥ ذخیره‌شده":"♡ ذخیره ایده"}</button></div></div>`}
+function renderHome(){let item=one(currentCat);document.getElementById("homeIdea").innerHTML=card(item,currentCat,1)+`<button class="smallbtn" style="margin-top:10px" onclick="renderHome()">↻ ایده دیگر</button>`}
+function generate(){
+ let cat=document.getElementById("topic").value;
+ let dur=document.getElementById("duration").value;
+ let subject=document.getElementById("subject").value.trim()||"موضوع دلخواهت";
+ let detail=document.getElementById("detail").value.trim();
+ let seconds=dur==="۱۵ ثانیه"?["۰ تا ۳ ثانیه: یک شروع جذاب و کنجکاوکننده.","۳ تا ۱۱ ثانیه: اصل پیام را با دو یا سه نمای سریع نشان بده.","۱۱ تا ۱۵ ثانیه: نتیجه و یک دعوت کوتاه به اقدام."]:dur==="۳۰ ثانیه"?["۰ تا ۴ ثانیه: با یک سؤال یا تصویر غیرمنتظره توجه را جلب کن.","۴ تا ۱۲ ثانیه: موضوع را معرفی کن و مشکل یا نیاز را نشان بده.","۱۲ تا ۲۴ ثانیه: سه نمای کوتاه از نکته‌ها یا ویژگی‌های اصلی بگیر.","۲۴ تا ۳۰ ثانیه: جمع‌بندی کن و از مخاطب بخواه نظر بدهد یا صفحه را دنبال کند."]:["۰ تا ۵ ثانیه: شروع قدرتمند و معرفی موضوع.","۵ تا ۲۰ ثانیه: زمینه و مسئله را با تصویر توضیح بده.","۲۰ تا ۴۵ ثانیه: مراحل یا ویژگی‌های اصلی را در چند بخش نمایش بده.","۴۵ تا ۵۵ ثانیه: نتیجه یا نکته مهم را برجسته کن.","۵۵ تا ۶۰ ثانیه: جمع‌بندی و دعوت به اقدام."];
+ let hook=cat==="تبلیغاتی"?`«دنبال یک انتخاب بهتر برای ${subject} هستی؟»`:cat==="آموزشی"?`«در کمتر از ${dur} یک نکته کاربردی درباره ${subject} یاد بگیر!»`:cat==="سرگرمی"?`«فکر می‌کنی آخر این ماجرا درباره ${subject} چی می‌شه؟»`:`«برای پیشرفت در ${subject} لازم نیست از اول عالی باشی؛ فقط شروع کن.»`;
+ let script=`موضوع: ${subject}\nدسته: ${cat}\nمدت: ${dur}\n\nشروع پیشنهادی:\n${hook}\n\nتقسیم‌بندی نماها:\n${seconds.join("\n")}`;
+ if(detail) script+=`\n\nنکته‌ای که باید حتماً پوشش داده شود:\n${detail}`;
+ script+=`\n\nنکته تدوین:\nاز کات‌های تمیز، زیرنویس خوانا و موسیقی متناسب استفاده کن. متن‌های روی تصویر را کوتاه نگه دار.`;
+ let caption=detail?`${subject}؛ ${detail} ✨`:`یک نگاه تازه به ${subject} ✨`;
+ window.lastText=`${script}\n\nکپشن پیشنهادی:\n${caption}`;
+ document.getElementById("studioResult").innerHTML=`<div class="result"><b>✨ سناریوی اختصاصی تو</b><br><br>${script.replaceAll("\n","<br>")}<br><br><b>کپشن پیشنهادی:</b><br>${caption}</div><div class="actions"><button class="smallbtn" onclick="copyLast()">کپی سناریو</button><button class="smallbtn fav" onclick="saveCustom('${encodeURIComponent(cat)}','${encodeURIComponent(subject)}','${encodeURIComponent(window.lastText)}')">♡ ذخیره سناریو</button></div>`;
+}
+function saveCustom(cat,subject,content){
+ cat=decodeURIComponent(cat);subject=decodeURIComponent(subject);content=decodeURIComponent(content);
+ let key=cat+"|"+subject+"|"+Date.now();
+ favorites.push({key,cat,title:"سناریو: "+subject,script:content,caption:"سناریوی اختصاصی"});
+ localStorage.setItem("clipchi_favs",JSON.stringify(favorites));
+ renderSaved();toast("سناریوی اختصاصی ذخیره شد");
+}
+function copyLast(){copyText(encodeURIComponent(window.lastText||""))}
+function copyText(s){let t=decodeURIComponent(s);if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>toast("متن کپی شد")).catch(()=>toast("امکان کپی خودکار نیست"));else toast("مرورگر اجازه کپی نداد")}
+function toggleFav(c,t){c=decodeURIComponent(c);t=decodeURIComponent(t);let key=c+"|"+t;let i=favorites.findIndex(x=>x.key===key);if(i>=0){favorites.splice(i,1);toast("از ذخیره‌ها حذف شد")}else{let item=bank[c].find(x=>x.title===t);favorites.push({key,cat:c,...item});toast("به علاقه‌مندی‌ها اضافه شد")}localStorage.setItem("clipchi_favs",JSON.stringify(favorites));renderHome();renderSaved()}
+function renderSaved(){let el=document.getElementById("savedList");if(!favorites.length){el.innerHTML='<div class="empty">هنوز ایده‌ای ذخیره نکردی.<br>از بخش خانه یا سناریوساز ایده‌های موردعلاقه‌ات را ذخیره کن.</div>';return}el.innerHTML=favorites.map((x,i)=>card(x,x.cat,i+1)).join("")}
+renderHome();renderSaved();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
